@@ -1,0 +1,87 @@
+{
+    "layer": "top",
+    "margin-top": 10,
+    "margin-right": 10,
+    "margin-bottom": 10,
+    "margin-left": 10,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "temperature", "cpu", "custom/gpu-usage", "memory", "disk"],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "*": [1, 2]
+        },
+        "sort-by-number": true
+    },
+    "clock": {
+        "format": "{:%a, %d. %b. – %H:%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "tz_up",
+            "on-scroll-down": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+            "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "phone-muted": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "scroll-step": 2,
+        "on-click": "pavucontrol",
+        "ignored-sinks": ["Easy Effects Sink"],
+        "tooltip": false
+    },
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "format": "  {temperatureC}°C",
+        "critical-threshold": 90,
+        "tooltip": false
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "   {}%",
+    },
+    "custom/gpu-usage": {
+        "format": "󰘚   {}",
+        "exec": "gpu-usage-waybar",
+        "return-type": "json",
+    },
+    "memory": {
+        "interval": 30,
+        "format": "    {}%",
+    },
+    "disk": {
+        "interval": 30,
+        "format": "󰆼   {used}/{total}",
+        "path": "/"
+    }
+}
