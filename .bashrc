@@ -6,8 +6,6 @@ alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias nv="nvim"
 
-PS1="\n[\u@\h \W]\$ "
-
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
 export PATH="$PATH:/home/neptune/.cargo/bin"
 
@@ -21,3 +19,5 @@ HISTFILESIZE=10000
 
 # Use Vi's keybindings instead of Emacs's
 set -o vi
+
+eval $(keychain --eval --quiet ~/.ssh/id_ed25519)
