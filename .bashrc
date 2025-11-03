@@ -22,4 +22,7 @@ HISTFILESIZE=10000
 # Use Vi's keybindings instead of Emacs's
 set -o vi
 
+export EDITOR=nvim
+export VISUAL=nvim
+
 eval $(keychain --eval --quiet ~/.ssh/id_ed25519)
